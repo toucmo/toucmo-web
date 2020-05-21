@@ -22,6 +22,11 @@ const fontMapping = {
     size: 16,
     color: '#39C2C8',
   },
+  'body-3': {
+    type: 'Semibold',
+    size: 16,
+    color: '#fff',
+  },
   'link-1': {
     type: 'Medium',
     size: 16,
@@ -37,6 +42,16 @@ const fontMapping = {
     size: 14,
     color: '#989898',
   },
+  'helper-1': {
+    type: 'Medium',
+    size: 12,
+    color: '#6F6F6F',
+  },
+  'helper-2': {
+    type: 'Medium',
+    size: 12,
+    color: '#39C2C8',
+  },
 };
 
 const Text = styled.span`
@@ -46,4 +61,4 @@ const Text = styled.span`
   line-height: 1;
 `;
 
-export default ({ category, ...props }) => <Text {...fontMapping[category]} {...props} />;
+export default ({ variant, ...props }) => <Text {...fontMapping[variant]} {...props} />;

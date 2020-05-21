@@ -11,8 +11,6 @@ const IconWrapper = styled.span`
   top: 50%;
   transform: translateY(-50%);
   ${({ position }) => `${position}: 15px;`}
-  ${({ clickable }) => (clickable ? `cursor: pointer;` : `pointer-events: none;`)}
-  background: url(${({ icon }) => icon}) no-repear center center;
 `;
 
 const Input = styled.input`
@@ -24,8 +22,9 @@ const Input = styled.input`
   background: #fff;
   outline: 0;
   padding: 0 15px;
-  ${({ hasLeftIcon }) => (hasLeftIcon && `padding-left: 45px;`)}
-  ${({ hasRightIcon }) => (hasRightIcon && `padding-right: 45px;`)}
+  font-size: 14px;
+  ${({ leftIcon }) => (leftIcon && 'padding-left: 45px;')}
+  ${({ rightIcon }) => (rightIcon && 'padding-right: 45px;')}
 
   &:focus {
     border-color: #212121;
@@ -37,16 +36,14 @@ const Input = styled.input`
 `;
 
 const InputField = ({
-  leftIcon,
-  hasLeftIcon,
-  rightIcon,
-  hasRightIcon,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
   ...props
 }) => (
   <Container>
-    <Input {...props} />
-    {hasLeftIcon && <IconWrapper icon={leftIcon} position="left" />}
-    {hasRightIcon && <IconWrapper icon={rightIcon} position="right" />}
+    <Input {...props} leftIcon={!!LeftIcon} rightIcon={!!RightIcon} />
+    {LeftIcon && (<IconWrapper position="left"><LeftIcon /></IconWrapper>)}
+    {RightIcon && <IconWrapper position="right"><RightIcon /></IconWrapper>}
   </Container>
 );
 

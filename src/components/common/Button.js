@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const types = {
-  'primary': {
+  primary: {
     color: '#fff',
     borderColor: '#FBB428',
     background: '#FBB428',
   },
-  'secondary': {
+  secondary: {
     color: '#989898',
     borderColor: '#989898',
     background: '#fff',
@@ -26,6 +26,8 @@ const Button = styled.button`
   background: ${({ background }) => background};
   cursor: pointer;
   outline: 0;
+  font-size: 16px;
+  font-family: Poppins Semibold;
 `;
 
-export default ({ buttonType, ...props }) => <Button {...types[buttonType]} {...props} />;
+export default ({ variant, ...props }) => <Button {...types[variant]} {...props} />;
