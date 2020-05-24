@@ -18,8 +18,9 @@ export default () => (
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Redirect exact from="/" to="/login" />
-        <Route exact path="/login" component={LoginView} />
+        {/* <Redirect exact from="/" to="/login" /> */}
+        <Route exact path="/" component={LoginView} />
+        <Route render={() => <h2>This page doesn't exist.</h2>} />
       </Switch>
     </Router>
   </Provider>
